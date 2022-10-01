@@ -50,7 +50,7 @@
                                         <input type="file" name="image" class="form-control" id="image">
                                     </div>
                                     <div class="form-group col-md-2">
-                                        <img id="showImage" src="{{ url('upload/no-image.png')}}" style="width: 150px; height: 160px;border: 1px solid #000">
+                                        <img id="showImage" src="{{ url('public/upload/no-image.png')}}" style="width: 150px; height: 160px;border: 1px solid #000">
                                     </div>
 
                                     <div class="form-group col-md-6">

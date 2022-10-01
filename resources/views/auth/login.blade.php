@@ -1,56 +1,72 @@
-<x-guest-layout>
-    <x-auth-card>
-        <x-slot name="logo">
-            <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-            </a>
-        </x-slot>
+<!doctype html>
+<html lang="en">
 
-        <!-- Session Status -->
-        <x-auth-session-status class="mb-4" :status="session('status')" />
+<head>
+    <title>Login Panel</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-        <!-- Validation Errors -->
-        <x-auth-validation-errors class="mb-4" :errors="$errors" />
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
 
-        <form method="POST" action="{{ route('login') }}">
-            @csrf
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
-            <!-- Email Address -->
-            <div>
-                <x-input-label for="email" :value="__('Email')" />
+    <link rel="stylesheet" href="{{ asset('public/login/css/style.css') }}">
 
-                <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
+</head>
+
+<body>
+    <section class="ftco-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-6 text-center mb-5">
+                    <h2 class="heading-section">Login Panel</h2>
+                </div>
             </div>
+            <div class="row justify-content-center">
+                <div class="col-md-7 col-lg-5">
+                    <div class="login-wrap p-4 p-md-5">
+                        <div class="icon d-flex align-items-center justify-content-center">
+                            <span class="fa fa-user-o"></span>
+                        </div>
+                        <h3 class="text-center mb-4">Sign In</h3>
+                        <form method="POST" action="{{ route('login') }}">
+                            @csrf
 
-            <!-- Password -->
-            <div class="mt-4">
-                <x-input-label for="password" :value="__('Password')" />
-
-                <x-text-input id="password" class="block mt-1 w-full"
-                                type="password"
-                                name="password"
-                                required autocomplete="current-password" />
+                            <div class="form-group">
+                                <input class="form-control rounded-left" id="email" class="block mt-1 w-full"
+                                    type="email" name="email" :value="old('email')" required autofocus>
+                            </div>
+                            <div class="form-group d-flex">
+                                <input class="form-control rounded-left" id="password" class="block mt-1 w-full"
+                                    type="password" name="password" required autocomplete="current-password">
+                            </div>
+                            <div class="form-group">
+                                <button type="submit"
+                                    class="form-control btn btn-primary rounded submit px-3">Login</button>
+                            </div>
+                            <div class="form-group d-md-flex">
+                                <div class="w-50">
+                                    <label class="checkbox-wrap checkbox-primary">Remember Me
+                                        <input type="checkbox" checked>
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </div>
+                                <div class="w-50 text-md-right">
+                                    <a href="#">Forgot Password</a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
+        </div>
+    </section>
 
-            <!-- Remember Me -->
-            <div class="block mt-4">
-                <label for="remember_me" class="inline-flex items-center">
-                    <input id="remember_me" type="checkbox" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" name="remember">
-                    <span class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
-                </label>
-            </div>
+    <script src="{{ asset('public/login/js/jquery.min.js') }}"></script>
+    <script src="{{ asset('public/login/js/popper.js') }}"></script>
+    <script src="{{ asset('public/login/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('public/login/js/main.js') }}"></script>
 
-            <div class="flex items-center justify-end mt-4">
-                @if (Route::has('password.request'))
-                    <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
-                        {{ __('Forgot your password?') }}
-                    </a>
-                @endif
+</body>
 
-                <x-primary-button class="ml-3">
-                    {{ __('Log in') }}
-                </x-primary-button>
-            </div>
-        </form>
-    </x-auth-card>
-</x-guest-layout>
+</html>

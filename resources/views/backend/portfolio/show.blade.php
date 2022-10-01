@@ -43,7 +43,7 @@
                         <tr>
                             <td>{{$key+1}}</td>
                             <td>{{ $portfolio->category->name}}</td>
-                            <td><img src="{{(!empty($portfolio->image))?url('upload/logo_images/'.$portfolio->image):url('upload/no-image.png')}}" height="130px" width="120px"></td>
+                            <td><img src="{{(!empty($portfolio->image))?url('public/upload/logo_images/'.$portfolio->image):url('public/upload/no-image.png')}}" height="130px" width="120px"></td>
                             <td>
                                 <a href="{{ route('portfolies.edit',$portfolio->id)}}" class="btn btn-sm btn-primary" title="edit"><i class="fa fa-edit"></i></a>
                                 <a href="{{ route('portfolies.delete',$portfolio->id)}}" id="delete" class="btn btn-sm btn-danger" title="delete"><i class="fa fa-trash"></i></a>

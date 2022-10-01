@@ -5,37 +5,77 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @vite('resources/css/app.css')
-    <link rel="stylesheet" href="{{ asset('css/font-awesome/css/all.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('public/css/font-awesome/css/all.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('public/css/style.css') }}">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500&display=swap" rel="stylesheet">
+    <style>
+        .grid-container {
+            display: grid;
+            gap: 10px;
+            grid-template-columns: 1fr 1fr 1fr;
+            padding: 10px;
+        }
+
+        .grid-item {
+            background-color: rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            font-size: 30px;
+            text-align: center;
+        }
+
+        @media only screen and (max-width: 768px) {
+
+            /* For desktop: */
+            .grid-container {
+                display: grid;
+                gap: 10px;
+                grid-template-columns: 1fr;
+                padding: 10px;
+            }
+
+        }
+    </style>
+
 </head>
 
 <body>
+
     <div class="container mx-auto ">
         <div class="flex mt-10 relative">
             <div class="hidden md:block">
                 @foreach ($logos as $logo)
-                    <a href="{{ route('index') }}">
-                        <img src="{{ !empty($logo->image) ? url('upload/logo_images/' . $logo->image) : url('upload/no-image.png') }}"
+                    <a href="{{ route('home') }}">
+                        <img src="{{ !empty($logo->image) ? url('public/upload/logo_images/' . $logo->image) : url('public/upload/no-image.png') }}"
                             height="130px" width="120px">
                     </a>
                 @endforeach
 
                 <div class="mt-10">
 
-
+                    <a class="transition p-3 cursor-pointer hover:bg-slate-100  hover:opacity-80 border-b border-slate-100"
+                        href="{{ route('home') }}">Overview</a>
                     @foreach ($categories as $category)
                         <p
-                            class="transition p-3 cursor-pointer hover:bg-slate-100 mb-1 hover:opacity-80 border-b border-slate-100">
+                            class="transition p-3 cursor-pointer hover:bg-slate-100  hover:opacity-80 border-b border-slate-100">
                             <a href="{{ route('category.view', $category->id) }}">
                                 {{ $category->name }}
                             </a>
                         </p>
                     @endforeach
+                    <br />
+                    <a class="transition p-3 cursor-pointer hover:bg-slate-100 mb-1 hover:opacity-80 border-b  border-slate-100"
+                        href="{{ route('video.view') }}">Film/Video</a>
                     <p
-                        class="transition p-3 cursor-pointer hover:bg-slate-100 mb-1 hover:opacity-80 border-b border-slate-100">
+                        class="transition p-3 cursor-pointer hover:bg-slate-100 mb-1  hover:opacity-80 border-b border-slate-100">
                         <a href="{{ route('about.view') }}">About Me</a>
+                    </p>
+                    <p
+                        class="transition p-2 cursor-pointer hover:bg-slate-100 mb-1  hover:opacity-80 border-b border-slate-100">
+                        <a href="{{ route('about.view') }}">Coutact</a>
                     </p>
                 </div>
             </div>
@@ -96,9 +136,12 @@
                 @endforeach
             </ul>
         </div>
+
+
     </div>
-    <script src="{{ asset('vendors/jquery/jquery-3.6.0.min.js') }}"></script>
-    <script src="{{ asset('js/main.js') }}"></script>
+
+    <script src="{{ asset('public/vendors/jquery/jquery-3.6.0.min.js') }}"></script>
+    <script src="{{ asset('public/js/main.js') }}"></script>
 
 
 

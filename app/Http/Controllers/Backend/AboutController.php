@@ -43,7 +43,6 @@ class AboutController extends Controller
     public function update(Request $request, $id)
     {
         $data = About::find($id);
-        $data->updated_by = Auth::user()->id;
         $data->about_text = $request->about_text;
         if ($request->file('image')) {
             $file = $request->file('image');

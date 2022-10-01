@@ -7,7 +7,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Manage Slider</h1>
+            <h1 class="m-0 text-dark">Manage Banner</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -27,8 +27,8 @@
             <!-- Custom tabs (Charts with tabs)-->
             <div class="card">
               <div class="card-header">
-                <h3> Add Slider
-                 <a class="btn btn-success float-right btn-sm" href="{{ route('sliders.view')}}"><i class="fa fa-list"></i> Slider List</a>
+                <h3> Add Banner
+                 <a class="btn btn-success float-right btn-sm" href="{{ route('sliders.view')}}"><i class="fa fa-list"></i> Banner List</a>
                 </h3>
               </div><!-- /.card-body -->
               <div class="card-body">

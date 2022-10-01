@@ -49,7 +49,7 @@
                                             <tr>
                                                 <td>{{ $key + 1 }}</td>
                                                 <td>{{ $about->about_text }}</td>
-                                                <td><img src="{{ !empty($about->image) ? url('upload/about_images/' . $about->image) : url('upload/no-image.png') }}"
+                                                <td><img src="{{ !empty($about->image) ? url('public/upload/about_images/' . $about->image) : url('public/upload/no-image.png') }}"
                                                         height="130px" width="120px"></td>
                                                 <td>
                                                     <a href="{{ route('abouts.edit', $about->id) }}"

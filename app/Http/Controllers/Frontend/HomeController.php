@@ -7,6 +7,7 @@ use App\Models\About;
 use App\Models\Category;
 use App\Models\Logo;
 use App\Models\Portfolio;
+use App\Models\Video;
 use Illuminate\Http\Request;
 
 
@@ -16,10 +17,18 @@ class HomeController extends Controller
 
     public function index()
     {
-        $data['portfolies'] = Portfolio::all();
         $data['categories'] = Category::all();
         $data['logos'] = Logo::all();
         return view('welcome', $data);
+    }
+
+    
+    public function home()
+    {
+        $data['portfolies'] = Portfolio::all();
+        $data['categories'] = Category::all();
+        $data['logos'] = Logo::all();
+        return view('home', $data);
     }
 
     public function category($id)
@@ -44,10 +53,20 @@ class HomeController extends Controller
 
     public function about()
     {
-        $data['about'] = About::find();
+        $data['abouts'] = About::all();
         $data['portfolies'] = Portfolio::all();
         $data['categories'] = Category::all();
         $data['logos'] = Logo::all();
         return view('about', $data);
+    }
+
+    public function videos()
+    {
+        $data['abouts'] = About::all();
+        $data['portfolies'] = Portfolio::all();
+        $data['categories'] = Category::all();
+        $data['logos'] = Logo::all();
+        $data['videos'] = Video::all();
+        return view('videos', $data);
     }
 }

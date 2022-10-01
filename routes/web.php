@@ -17,6 +17,7 @@ use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\Backend\ProductControllerTwo;
 use App\Http\Controllers\Backend\ProfileController;
 use App\Http\Controllers\Backend\UserController;
+use App\Http\Controllers\Backend\VideosController;
 use App\Http\Controllers\Frontend\HomeController;
 
 /*
@@ -39,11 +40,13 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 require __DIR__ . '/auth.php';
-
-Route::get('/', [HomeController::class, 'index'])->name('index');
-route::get('/portfolies/category/wise/{id}', [HomeController::class, 'category'])->name('category.view');
+Route::get('/category', [HomeController::class, 'index'])->name('index');
+Route::get('/', [HomeController::class, 'home'])->name('home');
+route::get('/portfolies/{id}', [HomeController::class, 'category'])->name('category.view');
 route::get('/portfolies', [HomeController::class, 'portfolio'])->name('portfolio.view');
 route::get('/about', [HomeController::class, 'about'])->name('about.view');
+route::get('/videos', [HomeController::class, 'videos'])->name('video.view');
+
 
 
 
@@ -128,5 +131,16 @@ Route::group(['middleware' => 'auth'], function () {
         route::get('/edit/{id}', [AboutController::class, 'edit'])->name('abouts.edit');
         route::post('/update/{id}', [AboutController::class, 'update'])->name('abouts.update');
         route::get('/delete/{id}', [AboutController::class, 'delete'])->name('abouts.delete');
+    });
+
+
+    
+    Route::prefix('videos')->group(function () {
+        route::get('/view', [VideosController::class, 'view'])->name('videos.view');
+        route::get('/add', [VideosController::class, 'add'])->name('videos.add');
+        route::post('/store', [VideosController::class, 'store'])->name('videos.store');
+        route::get('/edit/{id}', [VideosController::class, 'edit'])->name('videos.edit');
+        route::post('/update/{id}', [VideosController::class, 'update'])->name('videos.update');
+        route::get('/delete/{id}', [VideosController::class, 'delete'])->name('videos.delete');
     });
 });

@@ -27,7 +27,7 @@
                         <!-- Custom tabs (Charts with tabs)-->
                         <div class="card">
                             <div class="card-header">
-                                <h3> Add Slider
+                                <h3> Add Category
                                     <a class="btn btn-success float-right btn-sm" href="{{ route('categories.view') }}"><i
                                             class="fa fa-list"></i> Category List</a>
                                 </h3>
